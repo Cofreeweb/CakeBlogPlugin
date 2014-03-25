@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * La configuración de los tipos de secciones que habrá en este plugin
+ *
+ */
+ 
 $config ['SectionSettings'] = array(
     'name' => 'Blog',
     'url' => array(
