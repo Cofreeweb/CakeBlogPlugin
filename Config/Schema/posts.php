@@ -34,22 +34,23 @@ class PostsSchema extends CakeSchema {
  *
  * @var array
  */
-	public $posts = array(
-		'id' => array('type' =>'integer', 'null' => false, 'key' => 'primary'),
-		'antetitle' => array('type' => 'string', 'null' => true, 'default' => NULL),
-		'title' => array('type' => 'string', 'null' => true, 'default' => NULL),
-		'subtitle' => array('type' => 'string', 'null' => true, 'default' => NULL),
-		'active' => array('type' => 'boolean', 'null' => true, 'default' => null, 'key' => 'index'),
-		'slug' => array('type' => 'string', 'null' => true, 'default' => NULL),
-		'body' => array('type' => 'text', 'null' => true, 'default' => NULL),
-		'comment_count' => array('type' =>'integer', 'null' => true, 'default' => 0),
-		'published_at' => array('type' =>' datetime', 'null' => true, 'default' => NULL),
-		'created' => array('type' =>' datetime', 'null' => true, 'default' => NULL),
+	public $categories = array(
+	  'id' => array( 'type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'primary'),
+    'slug' => array('type' => 'string', 'null' => true, 'default' => NULL, 'key' => 'index'),
+    'title' => array( 'type' => 'string', 'null' => true),
+    'parent_id' => array( 'type' => 'integer', 'null' => false, 'default' => 0, 'key' => 'index'),
+    'level' => array( 'type' => 'integer', 'length' => 3, 'null' => false),
+    'lft' => array( 'type' => 'integer', 'length' => 9, 'null' => false, 'key' => 'index'),
+    'rght' => array( 'type' => 'integer', 'length' => 9, 'null' => false, 'key' => 'index'),
+    'created' => array( 'type' => 'datetime', 'null' => true, 'default' => NULL),
 		'modified' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
-		'indexes' => array(
-			'PRIMARY' => array('column' => 'id', 'unique' => 1),
-			'active' => array('column' => 'active', 'unique' => 0),
-		)
+    'indexes' => array(
+ 		    'PRIMARY' => array( 'column' => 'id', 'unique' => 1), 
+ 		    'slug' => array( 'column' => 'slug',  'unique' => 0),
+ 		    'parent_id' => array( 'column' => 'parent_id', 'unique' => 0),
+ 		    'lft' => array( 'column' => 'lft', 'unique' => 0),
+ 		    'rght' => array( 'column' => 'rght', 'unique' => 0),
+ 		 )
 	);
 	
 	

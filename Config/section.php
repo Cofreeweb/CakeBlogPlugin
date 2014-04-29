@@ -12,6 +12,25 @@ $config ['SectionSettings'] = array(
         'controller' => 'posts',
         'action' => 'index'
     ),
+    'admin' => array(
+        array(
+            'plugin' => 'blog',
+            'controller' => 'posts',
+            'action' => 'edit'
+        ),
+        array(
+            'plugin' => 'blog',
+            'controller' => 'posts',
+            'action' => 'published',
+            'edit' => false
+        ),
+        array(
+            'plugin' => 'blog',
+            'controller' => 'posts',
+            'action' => 'discard',
+            'edit' => false
+        )
+    ),
     'settings' => array(
         array(
             'key' => 'posts_per_page',
@@ -31,5 +50,6 @@ $config ['SectionSettings'] = array(
             'type' => 'boolean',
             'default' => 1
         ),
-    )
+    ),
+    'sluggable' => 'view'
 );
